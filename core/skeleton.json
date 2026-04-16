@@ -1,0 +1,16 @@
+{
+  "project": "ARCHIMEDES_GENESIS",
+  "version": "1.0.0",
+  "modules": [
+    {"id": 1, "era": "800 BCE", "title": "The Odyssey", "variable": "Persistence"},
+    {"id": 2, "era": "750 CE", "title": "Beowulf", "variable": "Heroism"},
+    {"id": 3, "era": "1320 CE", "title": "Dante's Inferno", "variable": "Justice"},
+    {"id": 4, "era": "1600 CE", "title": "Hamlet", "variable": "Introspection"},
+    {"id": 5, "era": "1818 CE", "title": "Frankenstein", "variable": "Accountability"},
+    {"id": 6, "era": "1844 CE", "title": "The Three Musketeers", "variable": "Synergy"},
+    {"id": 7, "era": "1844 CE", "title": "Count of Monte Cristo", "variable": "Strategic_Patience"},
+    {"id": 8, "era": "1851 CE", "title": "Moby Dick", "variable": "Perspective"},
+    {"id": 9, "era": "1887 CE", "title": "Sherlock Holmes", "variable": "Intuition"},
+    {"id": 10, "era": "1949 CE", "title": "1984", "variable": "Integrity"}
+  ]
+}
