@@ -24,16 +24,27 @@ def compile_tome():
             # Format folder name (e.g., "01_odyssey")
             folder_prefix = f"{module['id']:02d}"
             # Find the matching folder in the modules directory
+            found_folder = None
             for folder_name in os.listdir('modules'):
                 if folder_name.startswith(folder_prefix):
-                    file_path = f"modules/{folder_name}/chapter_01.md"
+                    found_folder = folder_name
+                    break
+                # Handle edge case: folders might have .md extension
+                if folder_name.startswith(f"{folder_prefix}_") or (folder_name.startswith(folder_prefix) and folder_name.endswith('.md')):
+                    found_folder = folder_name
+                    break
                     
-                    if os.path.exists(file_path):
-                        with open(file_path, 'r', encoding='utf-8') as md_file:
-                            final_tome += md_file.read() + "\n\n<div style='page-break-after: always;'></div>\n\n"
-                        logging.info(f"Appended Module {module['id']}: {module['title']}")
-                    else:
-                        logging.warning(f"Missing file for Module {module['id']} at {file_path}")
+            if found_folder:
+                file_path = f"modules/{found_folder}/chapter_01.md"
+                
+                if os.path.exists(file_path):
+                    with open(file_path, 'r', encoding='utf-8') as md_file:
+                        final_tome += md_file.read() + "\n\n<div style='page-break-after: always;'></div>\n\n"
+                    logging.info(f"Appended Module {module['id']}: {module['title']}")
+                else:
+                    logging.warning(f"Missing file for Module {module['id']} at {file_path}")
+            else:
+                logging.warning(f"No folder found matching module {module['id']}: {module['title']}")
         
         # 2. Append the Epilogue
         epilogue_path = 'core/finale/epilogue.md'
